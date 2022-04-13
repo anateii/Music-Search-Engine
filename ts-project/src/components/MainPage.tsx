@@ -1,4 +1,4 @@
-import { Container, Form, Navbar,Nav, Row, Col, Card } from "react-bootstrap";
+import { Container, Form, Navbar, Nav, Row, Col, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Track } from "../interfaces";
 import { ChangeEvent, FormEvent, useState } from "react";
@@ -14,25 +14,32 @@ const MainPage = () => {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    fetchTracks()
+  };
 
+  const fetchTracks = async() => {
     const response = await fetch(
-      "https://striveschool-api.herokuapp.com/api/deezer/search?q=" + input
+      "https://striveschool-api.herokuapp.com/api/deezer/search?q=" + input || "maluma"
     );
 
     if (response.ok) {
       const { data } = await response.json();
       setResults(data);
     }
-  };
+  }
 
   return (
     <>
       <Container fluid className="container-wrapper">
         <Navbar>
           <Nav>
-              <Form onSubmit={handleSubmit}>
-                <Form.Control type="search" value={input} onChange={handleChange} />
-              </Form>
+            <Form onSubmit={handleSubmit}>
+              <Form.Control
+                type="search"
+                value={input}
+                onChange={handleChange}
+              />
+            </Form>
           </Nav>
         </Navbar>
 
@@ -42,7 +49,7 @@ const MainPage = () => {
               <Col xs={10} md={3} className="mt-3" id="col-wrapper">
                 <Card>
                   <Link to={`details/${track.id}`} style={{ color: "white" }}>
-                    <Card.Img variant="top" src={track.album.cover_medium} />
+                    <Card.Img variant="top" src={track.album.cover_big} />
                   </Link>
                   <Card.Body>
                     <Card.Title>{track.title}</Card.Title>

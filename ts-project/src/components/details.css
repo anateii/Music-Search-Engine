@@ -1,0 +1,9 @@
+.img-fluid {
+    border-radius: 0.7rem;
+    box-shadow: 0 8px 20px -4px hsl(0, 0%, 5%);
+}
+
+h4 {
+    margin-top: 1rem;
+}
+
