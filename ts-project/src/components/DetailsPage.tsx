@@ -11,7 +11,6 @@ const DetailsPage = () => {
 
   useEffect(() => {
     fetchTracks();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchTracks = async () => {
@@ -19,10 +18,10 @@ const DetailsPage = () => {
       "https://striveschool-api.herokuapp.com/api/deezer/track/" + id
     );
 
-    if (!response.ok) return;
-
-    const data = await response.json();
-    setTrackDetails(data);
+    if (response.ok) {
+      const data = await response.json();
+      setTrackDetails(data);
+    }
   };
 
   return trackDetails ? (

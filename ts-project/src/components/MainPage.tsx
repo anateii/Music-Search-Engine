@@ -19,7 +19,7 @@ const MainPage = () => {
 
   const fetchTracks = async() => {
     const response = await fetch(
-      "https://striveschool-api.herokuapp.com/api/deezer/search?q=" + input || "maluma"
+      "https://striveschool-api.herokuapp.com/api/deezer/search?q=" + (input || "j balvin")
     );
 
     if (response.ok) {
@@ -37,6 +37,7 @@ const MainPage = () => {
               <Form.Control
                 type="search"
                 value={input}
+                placeholder="Search for.."
                 onChange={handleChange}
               />
             </Form>
@@ -46,7 +47,7 @@ const MainPage = () => {
         <Row className="my-3 row-wrapper">
           {results
             .map((track) => (
-              <Col xs={10} md={3} className="mt-3" id="col-wrapper">
+              <Col md={3} className="mt-3" id="col-wrapper">
                 <Card>
                   <Link to={`details/${track.id}`} style={{ color: "white" }}>
                     <Card.Img variant="top" src={track.album.cover_big} />
