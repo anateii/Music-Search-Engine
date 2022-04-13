@@ -1,0 +1,50 @@
+#col-wrapper {
+   
+    height: fit-content;
+    padding: 15px 15px;
+    border-radius: 0.7rem;
+    background-color: #181818;
+    transition: background-color 0.4s;
+
+}
+
+#col-wrapper:hover {
+    background-color: #282828;
+}
+
+.row-wrapper {
+    column-gap: 10px;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.card {
+    border: none;
+    color: white;
+    background-color: transparent;
+
+}
+
+.card-img-top {
+    border-radius: 15px;
+}
+
+.card-title {
+    font-size: 18px;
+}
+
+.form-control{
+    border-radius: 5rem;
+}
+
+.form-control:focus {
+   border-color: none!important;
+   box-shadow: none;
+   border:none;
+
+}
+
+.navbar {
+        justify-content: center;
+        margin-top: 1rem;
+}
