@@ -11,6 +11,7 @@ const DetailsPage = () => {
 
   useEffect(() => {
     fetchTracks();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchTracks = async () => {
